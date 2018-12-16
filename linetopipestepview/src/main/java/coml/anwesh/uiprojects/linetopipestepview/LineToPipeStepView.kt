@@ -213,4 +213,12 @@ class LineToPipeStepView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineToPipeStepView {
+            val view : LineToPipeStepView = LineToPipeStepView(activity)
+            activity.setContentView(view)
+            return view 
+        }
+    }
 }
