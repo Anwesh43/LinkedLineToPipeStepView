@@ -218,7 +218,7 @@ class LineToPipeStepView(ctx : Context) : View(ctx) {
         fun create(activity: Activity) : LineToPipeStepView {
             val view : LineToPipeStepView = LineToPipeStepView(activity)
             activity.setContentView(view)
-            return view 
+            return view
         }
     }
 }
