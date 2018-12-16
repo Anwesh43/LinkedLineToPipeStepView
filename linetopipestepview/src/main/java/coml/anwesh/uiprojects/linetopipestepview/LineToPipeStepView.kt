@@ -188,4 +188,27 @@ class LineToPipeStepView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineToPipeStepView) {
+
+        private val animator : Animator = Animator(view)
+
+        private val ltps : LineToPipeStep = LineToPipeStep(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#BDBDBD"))
+            ltps.draw(canvas, paint)
+            animator.animate {
+                ltps.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ltps.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
